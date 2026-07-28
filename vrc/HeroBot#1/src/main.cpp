@@ -93,7 +93,7 @@ void armToPos(double position, int velocity = 100) {
 
 // open claw
 void clawOpen() {
-    clawMotor.move_absolute(90, 100); // adjust 90 later
+    clawMotor.move_absolute(500, 100); // adjust 90 later
     clawIsOpen = true;
 }
 
