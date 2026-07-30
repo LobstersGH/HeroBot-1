@@ -16,7 +16,7 @@ bool clawIsOpen = false;
 bool xPressedLast = false;
 
 // Inertial Sensor on port 10
-pros::Imu imu(10);
+pros::Imu imu(4);
 
 // tracking wheels
 // horizontal tracking wheel encoder. Rotation sensor, port 20, not reversed
@@ -190,8 +190,9 @@ void example_autonomous() {
  */
 void autonomous() {
     // set position to x:0, y:0, heading:0
-	chassis.setPose(0, 12, 0);
-    armToPos(900, 100);
+	chassis.setPose(0, 0, 0);
+    chassis.turnToHeading(90, 100000);
+    /*armToPos(900, 100);
     armToPos(-900, 100);
     armToPos(900, 100);
     armToPos(-900, 100);
@@ -202,7 +203,7 @@ void autonomous() {
     chassis.turnToPoint(0,12,0);
     chassis.moveToPoint(12,12,0);
     chassis.turnToPoint(48,12,0);
-    chassis.turnToPoint()
+    chassis.turnToPoint()*/
     //Start your auto here! You can use the example autonomous routine, or write your own
 	
 
