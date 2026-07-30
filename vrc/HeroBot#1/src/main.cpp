@@ -93,13 +93,13 @@ void armToPos(double position, int velocity = 100) {
 
 // open claw
 void clawOpen() {
-    clawMotor.move_absolute(500, 100); // adjust 90 later
+    clawMotor.move_absolute(400, 100); // adjust 90 later
     clawIsOpen = true;
 }
 
 // close claw
 void clawClose() {
-    clawMotor.move_absolute(0, 100); // adjust 0 later
+    clawMotor.move_absolute(-100, 100); // adjust 0 later
     clawIsOpen = false;
 }
 
@@ -190,12 +190,19 @@ void example_autonomous() {
  */
 void autonomous() {
     // set position to x:0, y:0, heading:0
-	chassis.setPose(0, 0, 0);
-    chassis.setMaxSpeed(127); // set max speed to 127 (default is 127)
-    chassis.setMaxAcceleration(20); // set max acceleration to 20 (default is 20)
-    chassis.setMaxAngularSpeed(127); // set max angular speed to 127 (default is 127)
-    chassis.setMaxAngularAcceleration(20); // set max angular acceleration to 20 (default is 20)
-    
+	chassis.setPose(0, 12, 0);
+    armToPos(900, 100);
+    armToPos(-900, 100);
+    armToPos(900, 100);
+    armToPos(-900, 100);
+    chassis.moveToPoint(0,24,1000);
+    chassis.turnToPoint(24,24,1000);
+    chassis.moveToPoint(24,24,500);
+    clawOpen();
+    chassis.turnToPoint(0,12,0);
+    chassis.moveToPoint(12,12,0);
+    chassis.turnToPoint(48,12,0);
+    chassis.turnToPoint()
     //Start your auto here! You can use the example autonomous routine, or write your own
 	
 
